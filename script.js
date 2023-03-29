@@ -119,7 +119,7 @@ function handlePinch(){
 function adjustZoom(zoomAmount, zoomFactor){
   if(!isDragging){
     if(zoomAmount){
-      cameraZoom += zoomAmount
+      cameraZoom -= zoomAmount
     }
     else if (zoomFactor){
       console.log(zoomFactor)
@@ -140,6 +140,6 @@ canvas.addEventListener('mouseup', onPointerUp)
 canvas.addEventListener('touchend',  (e) => handleTouch(e, onPointerUp))
 canvas.addEventListener('mousemove', onPointerMove)
 canvas.addEventListener('touchmove', (e) => handleTouch(e, onPointerMove))
-canvas.addEventListener('wheel', (e) => adjustZoom(-e.deltaY * SCROLL_SENSITIVITY))
+canvas.addEventListener('wheel', (e) => adjustZoom(e.deltaY * SCROLL_SENSITIVITY))
 
 draw()
